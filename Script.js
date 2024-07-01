@@ -4,6 +4,8 @@ class Timer {
   #display = document.querySelector(".timer-output"); // The timer output HTML element
 
   // Timer properties
+  #initialMinutes; // Initial minutes
+  #initialSeconds; // Initial seconds
   #minutes; // Current minutes
   #seconds; // Current seconds
   #interval; // Current timer interval
@@ -14,6 +16,9 @@ class Timer {
     // Initialize minutes and seconds
     this.#minutes = initialMinutes;
     this.#seconds = initialSeconds;
+    // Keep track of the initial minutes and seconds separately
+    this.#initialMinutes = initialMinutes;
+    this.#initialSeconds = initialSeconds;
     // Timer is not active
     this.#timerIsActive = false;
     // Button press event listener
