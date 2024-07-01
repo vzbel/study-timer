@@ -19,6 +19,8 @@ class Timer {
     // Keep track of the initial minutes and seconds separately
     this.#initialMinutes = initialMinutes;
     this.#initialSeconds = initialSeconds;
+    // Update the display according to the provided minutes and seconds
+    this.updateDisplay();
     // Timer is not active
     this.#timerIsActive = false;
     // Button press event listener
@@ -111,4 +113,4 @@ class Timer {
 }
 
 // Create main 30 minute timer
-const timer = new Timer(0, 4);
+const timer = new Timer(30, 0);
