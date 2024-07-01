@@ -35,7 +35,7 @@ class Timer {
         this.start(); // Start timer
         break;
       case "stop":
-        console.log("stop");
+        this.stop(); // Stop timer
         break;
       case "reset":
         console.log("reset");
@@ -43,7 +43,7 @@ class Timer {
     }
   }
 
-  // Start timer on button press
+  // Start timer
   start() {
     // If the timer is not active
     if (this.#timerIsActive === false) {
@@ -69,6 +69,12 @@ class Timer {
         this.updateDisplay();
       }, 1000);
     }
+  }
+
+  // Stop timer
+  stop() {
+    clearInterval(this.#interval); // Clear timer interval
+    this.#timerIsActive = false; // Set timer to inactive
   }
 
   // Update timer display
