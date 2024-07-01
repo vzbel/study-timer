@@ -43,7 +43,7 @@ class Timer {
         this.stop(); // Stop timer
         break;
       case "reset":
-        console.log("reset");
+        this.reset(); // Reset timer
         break;
     }
   }
@@ -82,6 +82,17 @@ class Timer {
     this.#timerIsActive = false; // Set timer to inactive
   }
 
+  // Reset timer
+  reset() {
+    // First stop the timer
+    this.stop();
+    // Then reset minutes and seconds
+    this.#minutes = this.#initialMinutes;
+    this.#seconds = this.#initialSeconds;
+    // Update display to default
+    this.updateDisplay();
+  }
+
   // Update timer display
   updateDisplay() {
     // If the minutes and seconds (or either one) are less than ten,
@@ -100,4 +111,4 @@ class Timer {
 }
 
 // Create main 30 minute timer
-const timer = new Timer(30, 0);
+const timer = new Timer(0, 4);
