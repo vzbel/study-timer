@@ -1,0 +1,116 @@
+:root{
+    /* Useful Colors */
+    --dark-color:rgb(42, 40, 40);
+    --light-color: rgb(240, 238, 238);
+    --dark-shadow-color: rgb(67, 64, 64);
+    --mid-shadow-color: rgb(118, 113, 113);
+}
+
+*{
+    /* Set border-box sizing, initialize margin and padding */
+    box-sizing: border-box;  
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    /* Set root element font size */
+    font-size: 32px;
+}
+
+body{
+    /* Display content on center */
+    display: flex;
+    height: 100vh;
+    align-items: center;
+
+    /* Set background and text colors, respectively */
+    background-color: var(--dark-color);
+    color: var(--light-color);
+
+    /* Set font */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Main container for timer title, output, and buttons */
+.main{
+    /* Center horizontally */
+    margin: 0 auto;
+
+    /* Padding */
+    padding: 20px 25px;
+
+    /* Width and Max-Width */
+    width: 90%;
+    max-width: 15rem;
+
+    /* Outline */
+    outline: 2px solid var(--mid-shadow-color);
+    border-radius: 5px ;
+
+    /* Box Shadow */
+    box-shadow: -12px 10px var(--dark-shadow-color);
+
+    /* Align text to center */
+    text-align: center;
+    
+}
+
+
+/* Title of the timer */
+.title{
+    /* Font size of title */
+    font-size: 1rem;
+}
+
+/* Current time display */
+.timer-output{
+    /* Font size of current time display */
+    font-size: clamp(3rem, 2vw + 1rem, 4rem);
+}
+
+/* Start, Stop, and Reset Buttons */
+.main button{
+    /* Padding */
+    padding: 15px 25px;
+
+    /* Slight Margin */
+    margin-right: 2px;
+    margin-left: 2px;
+    /* Transparent Background */
+    background: none;
+
+    /* Outline and Border */
+    outline: 2px solid var(--mid-shadow-color);
+    border-style: none;
+    border-radius: 2px;
+
+    /* Box Shadow */
+    box-shadow: -2px 3px var(--mid-shadow-color);
+
+    /* Font-Size and Color*/
+    font-size: .5rem;
+    color: var(--light-color);
+
+    /* Transition */
+    transition: 1s ease-in-out;
+}
+
+/* Button hover behavior */
+.main button:hover{
+    /* Background change on hover */
+    background-color: var(--light-color);
+
+    /* Font color change on hover */
+    color: var(--dark-color);
+
+    /* Cursor becomes hand */
+    cursor: pointer;
+}
+
+/* Prevent selection of certain UI elements */
+.unselectable{
+    user-select: none;
+}
+
+
