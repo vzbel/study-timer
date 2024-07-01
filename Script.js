@@ -6,12 +6,16 @@ class Timer {
   // Timer properties
   #minutes; // Current minutes
   #seconds; // Current seconds
+  #interval; // Current timer interval
+  #timerIsActive; // Boolean that tells if the timer is currently running
 
   // Create new timer with some initial minutes and seconds.
   constructor(initialMinutes, initialSeconds) {
     // Initialize minutes and seconds
     this.#minutes = initialMinutes;
     this.#seconds = initialSeconds;
+    // Timer is not active
+    this.#timerIsActive = false;
     // Button press event listener
     this.initializeEventListeners();
   }
@@ -40,13 +44,32 @@ class Timer {
   }
 
   // Start timer on button press
-  //   start() {
-  //     // Start timer interval, which decreases the time every second.
-  //     let interval = setInterval(() => {
-  //       this.#seconds--;
-  //       this.updateDisplay();
-  //     }, 1000);
-  //   }
+  start() {
+    // If the timer is not active
+    if (this.#timerIsActive === false) {
+      // Set timer to active mode
+      this.#timerIsActive = true;
+
+      // Start timer interval, which decreases the time every second.
+      this.#interval = setInterval(() => {
+        // If the timer is done
+        if (this.#minutes === 0 && this.#seconds === 0) {
+          clearInterval(this.#interval); // Clear current timer interval
+          this.#timerIsActive = false; // Set timer to inactive
+        } else if (this.#seconds === 0) {
+          // If seconds is zero ^
+          this.#seconds--; // Decrement seconds
+          this.#seconds = 59; // Start seconds at 59
+          this.#minutes--; // Decrement minutes
+        } else {
+          // ^ Else just decrement seconds.
+          this.#seconds--;
+        }
+        // Update the display with the new time.
+        this.updateDisplay();
+      }, 1000);
+    }
+  }
 
   // Update timer display
   updateDisplay() {
@@ -66,4 +89,4 @@ class Timer {
 }
 
 // Create main 30 minute timer
-const timer = new Timer(18, 58);
+const timer = new Timer(30, 0);
